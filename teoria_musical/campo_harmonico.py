@@ -1,7 +1,6 @@
 """
 # CAMPOS HARMÔNICOS.
 Módulo responsável pela criação de campos harmônicos
-
 """
 from teoria_musical.acordes import triade
 from teoria_musical.escalas import escala

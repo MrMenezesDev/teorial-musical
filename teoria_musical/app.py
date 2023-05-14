@@ -1,12 +1,11 @@
-from flask import Flask
 from functools import wraps
-from flask import jsonify
+
+from flask import Flask, jsonify
 
 from teoria_musical.acordes import acorde
-from teoria_musical.escalas import ESCALAS, escala
 from teoria_musical.campo_harmonico import campo_harmonico
+from teoria_musical.escalas import ESCALAS, escala
 from teoria_musical.notas import NOTAS
-
 
 app = Flask(__name__)
 
@@ -27,28 +26,31 @@ def handle_error(f):
             return jsonify({'escalas': list(ESCALAS.keys())}), 404
         except Exception:
             return jsonify({'error': 'Internal Server Error'}), 500
+
     return wrapper
 
 
-@app.route("/")
+@app.route('/')
 @handle_error
 def hello_world():
-    return "<p>Hello, World!</p>"
+    return '<p>Hello, World!</p>'
 
 
-@app.route("/escala")
+@app.route('/escala')
 @handle_error
 def get_escala(tonica: str, tonalidade: str):
     return jsonify({'error': escala(tonica, tonalidade).values()}, 200)
 
 
-@app.route("/acorde")
+@app.route('/acorde')
 @handle_error
 def get_acorde(tonica: str, tonalidade: str):
     return jsonify({'error': acorde(tonica, tonalidade).values()}, 200)
 
 
-@app.route("/campo_hamonico")
+@app.route('/campo_hamonico')
 @handle_error
 def get_campo_harmonico(tonica: str, tonalidade: str):
-    return jsonify({'error': campo_harmonico(tonica, tonalidade).values()}, 200)
+    return jsonify(
+        {'error': campo_harmonico(tonica, tonalidade).values()}, 200
+    )

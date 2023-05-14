@@ -1,6 +1,6 @@
 """
 # ESCALAS
-As escalas estão implementadas em uma constante chamada `ESCALAS`. 
+As escalas estão implementadas em uma constante chamada `ESCALAS`.
 Que é um dicionário onde as chaves são os nomes das escalas.
 Se quiser ver todas as escalas implementadas pode usar:
 
@@ -11,17 +11,16 @@ Se quiser ver todas as escalas implementadas pode usar:
 ```
 # GPT
 
-```GPT 
+```GPT
 Poderia formatar um texto para mim?
 
-link: https://en.wikipedia.org/wiki/List_of_musical_scales_and_modes 
+link: https://en.wikipedia.org/wiki/List_of_musical_scales_and_modes
 Gostaria que extraísse da tabela no link acima os "Integers notation"
  e formatasse como o exemplo a baixo:
 
 
 ESCALAS = {'major': (0, 2, 4, 5, 7, 9, 11), 'minor': (0, 2, 3, 5, 7, 8, 10)}
 ```
-
 """
 from teoria_musical.notas import NOTAS
 
@@ -35,7 +34,19 @@ ESCALAS = {
     'Augmented scale': (0, 3, 4, 7, 8, 11),
     'Bebop dominant scale': (0, 2, 4, 5, 7, 9, 10, 11),
     'Blues scale': (0, 3, 5, 6, 7, 10),
-    'Chromatic scale': (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,),
+    'Chromatic scale': (
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+    ),
     'Dorian mode': (0, 2, 3, 5, 7, 9, 10),
     'Double harmonic scale': (0, 1, 4, 5, 7, 8, 11),
     'Enigmatic scale': (0, 1, 4, 6, 8, 10, 11),
@@ -65,7 +76,7 @@ ESCALAS = {
     'Prometheus scale': (0, 2, 4, 6, 9, 10),
     'Tritone scale': (0, 1, 4, 6, 7, (10)),
     'Ukrainian Dorian scale': (0, 2, 3, 6, 7, 9, 10),
-    'Whole tone scale': (0, 2, 4, 6, 8, 10)
+    'Whole tone scale': (0, 2, 4, 6, 8, 10),
 }
 
 
