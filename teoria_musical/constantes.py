@@ -1,5 +1,46 @@
-from teoria_musical.constantes import NOTAS
-from teoria_musical.error import EscalaError, NotaError
+"""
+# CONSTANTES
+As notas e escalas estão definidas nas respectivas constantes `NOTAS` e `ESCALAS`.
+## NOTAS
+As notas estão sendo definidas em uma constante `NOTAS`.
+Foi optado por manter somente as notas no formato Natural e o Sustenido (#) para a simplificação do fluxo de trabalho.
+Embora não esteja totalmente correto. Para ver as 12 notas você pode:
+
+```py
+>>> from teoria_musical.constantes import NOTAS
+>>> NOTAS
+['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B']
+
+```
+
+## ESCALAS
+As escalas estão implementadas em uma constante chamada `ESCALAS`.
+Que é um dicionário onde as chaves são os nomes das escalas.
+Se quiser ver todas as escalas implementadas pode usar:
+
+```py
+>>> from teoria_musical.constantes import ESCALAS
+>>> ESCALAS['maior']
+(0, 2, 4, 5, 7, 9, 11)
+
+```
+## GPT
+
+```GPT
+Poderia formatar um texto para mim?
+
+link: https://en.wikipedia.org/wiki/List_of_musical_scales_and_modes
+Gostaria que extraísse da tabela no link acima os "Integers notation"
+ e formatasse como o exemplo a baixo:
+
+
+ESCALAS = {'major': (0, 2, 4, 5, 7, 9, 11), 'minor': (0, 2, 3, 5, 7, 8, 10)}
+```
+"""
+
+
+NOTAS = 'C C# D D# E F F# G G# A A# B'.split()
+
 
 ESCALAS = {
     'maior': (0, 2, 4, 5, 7, 9, 11),
@@ -55,38 +96,3 @@ ESCALAS = {
     'Ukrainian Dorian scale': (0, 2, 3, 6, 7, 9, 10),
     'Whole tone scale': (0, 2, 4, 6, 8, 10),
 }
-
-
-def escala(tonica: str, tonalidade: str) -> dict[str, list[str]]:
-    """
-    Gera uma escala a partir de uma tônica e uma tonalidade.
-    Args:
-        tônica: Nota que será a tônica da escala
-        tonalidade: Tonalidade da escala
-    Returns:
-        Um dicionário com as notas da escala e os graus.
-    Raises:
-        NotaError: Caso a tônica não seja uma nota valida.
-        EscalaError: Caso a escala não exista ou não tenha sido implementada.
-    Examples:
-        >>> escala('C', 'maior')
-        {'notas': ['C', 'D', 'E', 'F', 'G', 'A', 'B'], 'graus': ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII']}
-        >>> escala('a', 'menor')
-        {'notas': ['A', 'B', 'C', 'D', 'E', 'F', 'G'], 'graus': ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII']}
-    """
-    tonica = tonica.upper()
-    try:
-        intervalos = ESCALAS[tonalidade]
-        tonica_pos = NOTAS.index(tonica)
-    except ValueError:
-        raise NotaError()
-    except KeyError:
-        raise EscalaError()
-
-    temp = []
-
-    for intervalo in intervalos:
-        nota = (tonica_pos + intervalo) % 12
-        temp.append(NOTAS[nota])
-
-    return {'notas': temp, 'graus': ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII']}

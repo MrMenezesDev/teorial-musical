@@ -4,8 +4,9 @@ from flask import Flask, jsonify
 
 from teoria_musical.acordes import acorde
 from teoria_musical.campo_harmonico import campo_harmonico
-from teoria_musical.escalas import ESCALAS, escala
-from teoria_musical.notas import NOTAS
+from teoria_musical.constantes import ESCALAS, NOTAS
+from teoria_musical.error import EscalaError, NotaError
+from teoria_musical.escalas import escala
 
 app = Flask(__name__)
 
@@ -20,9 +21,9 @@ def handle_error(f):
     def wrapper(*args, **kwargs):
         try:
             return f(*args, **kwargs)
-        except ValueError:
+        except NotaError:
             return jsonify({'notas': list(NOTAS)}), 404
-        except KeyError:
+        except EscalaError:
             return jsonify({'escalas': list(ESCALAS.keys())}), 404
         except Exception:
             return jsonify({'error': 'Internal Server Error'}), 500

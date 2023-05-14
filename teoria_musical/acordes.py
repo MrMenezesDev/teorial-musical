@@ -3,8 +3,8 @@
 
 O módulo de acordes conta com funções e ferramentas necessárias para a geração de acordes.
 """
+from teoria_musical.constantes import NOTAS
 from teoria_musical.escalas import escala
-from teoria_musical.notas import NOTAS
 
 
 def _menor(cifra):
