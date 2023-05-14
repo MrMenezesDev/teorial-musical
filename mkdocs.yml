@@ -1,0 +1,16 @@
+site_name: Teorial Musical
+repo_url: https://github.com/MrMenezesDev/teorial-musical
+repo_name: Teorial Musical
+edit_uri: tree/main/docs
+
+theme:
+  name: material
+  language: pt-Br
+  favicon: assets/logo.png
+
+
+markdown_extensions:
+  - attr_list
+
+extra_css:
+  - stylesheets/extra.css
