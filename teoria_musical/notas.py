@@ -5,9 +5,10 @@ Foi optado por manter somente as notas no formato Natural e o Sustenido (#) para
 Embora não esteja totalmente correto. Para ver as 12 notas você pode:
 
 ```py
->>> from notas import NOTAS
+>>> from teoria_musical.notas import NOTAS
 >>> NOTAS
 ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B']
+
 ```
 """
 

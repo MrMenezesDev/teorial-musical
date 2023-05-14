@@ -5,10 +5,12 @@ Que é um dicionário onde as chaves são os nomes das escalas.
 Se quiser ver todas as escalas implementadas pode usar:
 
 ```py
->>> from notas import ESCALAS
+>>> from teoria_musical.escalas import ESCALAS
 >>> ESCALAS['maior']
 (0, 2, 4, 5, 7, 9, 11)
+
 ```
+
 # GPT
 
 ```GPT
