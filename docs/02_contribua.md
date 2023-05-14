@@ -9,7 +9,7 @@ Obrigado por se interessar por contribuir no projeto `teoria-musical` :heart:. N
 ```mermaid
 flowchart
     . --> docs
-	. --> notas_musicais
+	. --> teoria_musical
 	. --> tests
 ```
 
@@ -49,7 +49,7 @@ Para as respostas ricas no output da aplicação, foi usada a biblioteca [Rich](
 
 A única convenção que está sendo seguida a respeito do CLI é que já foi definido um objeto `Console` do rich e um app do `Typer` seria interessante que você continue usando esses objetos
 
-```py title="notas_musicais/cli.py"
+```py title="teoria_musical/cli.py"
 from rich.console import Console
 from typer import Argument, Typer
 
@@ -63,7 +63,7 @@ app = Typer()
 
 Para os testes estamos usando o [pytest](https://docs.pytest.org/). As configurações dele podem ser encontradas no arquivo [pyproject.toml](https://github.com/dunossauro/notas-musicais/blob/main/pyproject.toml) na raiz do nosso projeto.
 
-Coisas importantes que você deve saber sobre os testes é que nem todos os testes estão somente no diretório `notas_musicais/tests`. A flag de `addopts = "--doctest-modules"` está sendo usada. Então, caso modifique algo, esteja ciente que as docstrings também rodam testes e são a base para documentação da API, então tome cuidado com alterações.
+Coisas importantes que você deve saber sobre os testes é que nem todos os testes estão somente no diretório `teoria_musical/tests`. A flag de `addopts = "--doctest-modules"` está sendo usada. Então, caso modifique algo, esteja ciente que as docstrings também rodam testes e são a base para documentação da API, então tome cuidado com alterações.
 
 A cobertura dos testes está sendo gerada automaticamente com [pytest-cov](https://github.com/pytest-dev/pytest-cov) e são exibidas quando a task de testes é executada:
 
