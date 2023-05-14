@@ -101,7 +101,7 @@ I - IV - V
 
 
 ```bash
-notas-musicais c maior
+teoria-musicais c maior
 ```
 
 Aplicação deve responder:
